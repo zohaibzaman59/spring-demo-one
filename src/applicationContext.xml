@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+    http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="trackCoach" class="com.lov2code.springdemo.TrackCoach">
+		<constructor-arg ref="myFortune" />
+	</bean>
+
+	<bean id="myFortune"
+		class="com.lov2code.springdemo.HappyFortuneService">
+	</bean>
+	<bean id="baseBallCoach"
+		class="com.lov2code.springdemo.BaseballCoach">
+		<constructor-arg ref="myFortune" />
+	</bean>
+
+	<bean id="myLoggerConfig"
+		class="com.lov2code.springdemo.MyLoggerConfig"
+		init-method="initLogger">
+		<property name="rootLoggerLevel" value="FINEST" />
+		<property name="printedLoggerLevel" value="FINEST" />
+	</bean>
+</beans>
